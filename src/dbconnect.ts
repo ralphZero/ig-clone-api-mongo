@@ -1,4 +1,4 @@
-import { MongoClient, ServerApiVersion, MongoClientOptions } from 'mongodb';
+import { MongoClient } from 'mongodb';
 
 // import secret uri
 import { URI } from '../secret';
