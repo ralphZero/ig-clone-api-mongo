@@ -9,11 +9,21 @@ photoRouter.get('/', async (req: Request, res: Response) => {
 });
 
 photoRouter.post('/', async (req: Request, res: Response) => {
-    const { photoUrl, description } = req.body;
+    const { photoUrl, description, likes = 0 } = req.body;
     if(!photoRouter) {
         res.status(400).send('Photo url required');
     }
-    const insertedId = await PhotoServices.createPhoto({ photoUrl, description });
+    const insertedId = await PhotoServices.createPhoto({ photoUrl, description, likes });
 
     res.status(201).send({ insertedId });
+});
+
+photoRouter.patch('/:id', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { likes } = req.body;
+    if(!likes) {
+        res.status(400).send('Likes are required');
+    }
+    const photo = await PhotoServices.updateLikes(id, likes);
+    res.status(200).json(photo);
 });

@@ -1,7 +1,7 @@
 export interface Photo {
     id?: string,
     photoUrl: string,
-    likes?: number,
+    likes: number,
     comments?: string[],
     description?: string
 }
