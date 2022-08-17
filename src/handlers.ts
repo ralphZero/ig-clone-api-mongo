@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import { client } from './dbconnect'
+import { client } from './db/dbconnect'
 
 export const getAll = (req: Request, res: Response): void => {
     client.connect((err) => {
