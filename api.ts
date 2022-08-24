@@ -4,7 +4,7 @@ import { photoRouter } from './src/routers/photo-router';
 
 const app = express();
 
-const PORT: number = 3333;
+const PORT: number = 4000;
 
 app.use(express.json());
 app.use(cors());
