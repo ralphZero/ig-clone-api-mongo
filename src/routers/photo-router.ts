@@ -27,3 +27,13 @@ photoRouter.patch('/:id', async (req: Request, res: Response) => {
     const photo = await PhotoServices.updateLikes(id, likes);
     res.status(200).json(photo);
 });
+
+photoRouter.patch('/:id/comments', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { comment } = req.body;
+    if(!comment) {
+        res.status(400).send('A comment is required');
+    }
+    const photo = await PhotoServices.createComment(id, comment);
+    res.status(200).json(photo);
+});
