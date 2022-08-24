@@ -1,3 +1,5 @@
 node_modules/
 secret.ts
+package-lock.json
+yarn.lock
 .DS_STORE
